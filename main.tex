@@ -136,10 +136,9 @@ Regularization approaches seek to alleviate catastrophic forgetting by imposing 
 \newline
 Dynamic architectures allocate novel neural resources whenever  new tasks or classes are learnt. However this is not very interesting in our application as the covolutional nets used in RL algorithms are already very large and this would lead to scalability issues. We will not consider this approach as we seek to develop a functional algorithm with the minimal network size. However, it may be useful to consider, in a future stage, the possibility of subdividing learning in two stages: a first one where new neural resources are allocated to facilitate assimilation of novel tasks and a second one in which this knowledge is compressed or \textit{distilled} to extract the useful information.\\
 \newline
-Dual-memory systems propose the use of complementary networks that separate the functions of memorization and generalization. This is inspired by the \textit{complementary learning systems} theory by \citep{McClelland1995WhyMemory.} which explains how the two different structures in the mammalian brain work: the hippocampus is used for short term memory (rapid learning) while the neocortex for long term memory.\textit{Robins} then complemented this theory suggesting that information is slowly consolidated in off-line phases in the neocortex, using \textit{pseudorehearsal}.\\
-
+Dual-memory systems propose the use of complementary networks that separate the functions of memorization and generalization. This is inspired by the \textit{complementary learning systems} theory by \citep{McClelland1995WhyMemory.} which explains how learning works in the mammalian brain work. They showed that the mamalian brain uses two stuctures in the learning process. The first one, the hippocampus is used for short term memory (rapid learning) while the neocortex, the second one, is used for long term memory.\textit{Robins} then complemented this theory suggesting that information is slowly consolidated in off-line phases in the neocortex, using \textit{pseudorehearsal}. This idea can be exploited in neural networks by using separate networks for novel knowledge assimilation and for knowledge consolidation, although advances have not been made on the RL domain.\\
 \newline
-
+Futhermore,
 critical learning phases
 
 
