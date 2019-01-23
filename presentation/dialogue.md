@@ -57,8 +57,21 @@ One propose de pas trouver un politiaque qui peut resoudre plusiers taches au me
 
 #####
 
-On a trouve pas trouve beacoup des references au catastohic forgetting dans la literature du RL et on croit que c'est un probleme tres important. Le catastrophic forgetting est la tendence des resaux neuron de perturber le conaissance d'une tache posteriore quand une nouvelle tache est apprisse.
+On a trouve pas trouve beaUcoup des references au catastrophic forgetting dans la literature du RL et on croit que c'est un probleme tres important. Le catastrophic forgetting est la tendence des resaux neuron de perturber le conaissance d'une tache posteriore quand une nouvelle tache est apprisse.
 Donc, comme on essay de entrenaire un resau dans des taches differentes. qui veut dire que la q-fonction pour chaque tache va etre differente, ont doit assurer que les taches precedentes sont pas alteres quand on apprende une nouvelle.
 
 
-######
+
+###### literature
+
+La solution plus classique est de melanger des transitions des taches precendents quand le reseau s'entraine dans une nouvelle tache, mais pour ça on a besoin de avoir une memoire pour chaque tache, ce qui est une grande limitation.
+Psedurehearsal propose de generer des transitions en faire pasant un vecteur random par le reseau. Avec cette concepte on a besoin de garder que les parametres du reseau pour generer des samples.
+
+Deepmind a recement developpe aussi un systeme appelle Elastic Weight Consolidation qui freine le apprentissage de certaines parametres en fonction de ca importance dans le tache precedente. Dans une facon, on peut voir comme lier les parametres pour notre nouvelle tache aux parametres de la tache precendente avec un ressort dont ca rigidite depend de ca relevance dans la tache d'avant.
+
+Une autre solution sont les systemes dual qui utilisent une reseau pour l'apprentisage et une autre differente pour consolider la memoire. Avec ce systeme les nouveaux connaisances peuvent etre memorisees et asimilees plus lentement.
+
+
+#### Conclusion
+
+Finalement, aborder le probleme du catastrophic forgetting directement va nous donner une nouvelle perspective. Selon nous, les concepts de pseudorehearsal et dual-memory systmes vont etre tres aidants pour le developpement de notre algorithme. Pour conclure, grace a cette etude bibliographique on a pu posicioner notre propsition dans le paysafe du multitask and transfer RL et nous a donné de l'inspiration pour pouvoir proposer des nouvelles solutions dans ce domaine.

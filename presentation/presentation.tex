@@ -283,7 +283,7 @@ Different approaches:\\
 \begin{frame}
   \frametitle{Multitask and transfer RL on literature}
 \begin{itemize}
-    \item \textbf{Actor-mimic framework}: student network that mimics experts policies \cite{Parisotto2015Actor-Mimic:Learning}.
+    \item \textbf{Actor-mimic framework}: student network that mimics experts' policies \cite{Parisotto2015Actor-Mimic:Learning}.
     \begin{itemize}
         \item Similar concept to policy distillation, but different execution.
         \item Matching expert-student q-value softmax to reduce variance
@@ -305,7 +305,7 @@ Different approaches:\\
     \begin{itemize}
         \item New architecture
         \item Preventing negative transfer
-        \item New sampling strategy, preserve state distribution.
+        \item New sampling strategy, preserving state distribution.
     \end{itemize} 
 \end{itemize}
 \begin{figure}
@@ -338,7 +338,7 @@ Different approaches:\\
         \begin{itemize}
             \item Not using experts
             \item Not exact same hyperparameters and smaller size
-            \item Fine-tuning previous to executing an specific task
+            \item Fine-tuning previous to executing a specific task
             \item Exploit similarities to favor transfer and reduce training times
         \end{itemize}
 \end{itemize}
@@ -351,7 +351,7 @@ Different approaches:\\
 \begin{frame}
  \frametitle{Why is catastrophic forgetting a problem?}
   \begin{itemize}
-      \item Neural networks alter previous knowledge when new one is acquired
+      \item Neural networks alter previous knowledge when new information is acquired.
       \item Q-values vary from task to task. Different ranges.
       \item Information needs to be consolidated without perturbing previous tasks.
   \end{itemize}
@@ -363,13 +363,13 @@ Different approaches:\\
 \begin{itemize}
     \item Classic solution: Interleaving new and old samples (Rehearsal)
     \item Pseudo rehearsal \cite{RobinsConsolidationBrain}
-    \item Elastic weight Consolidation \cite{Kirkpatrick2017OvercomingNetworks.}
+    \item Elastic Weight Consolidation \cite{Kirkpatrick2017OvercomingNetworks.}
     \item Dual-memory systems \cite{Parisi2018ContinualReview}
 \end{itemize}
 \begin{figure}
     \centering
     \includegraphics[scale=0.6]{figs/ewc.jpg}
-    \caption{Elastic weight consolidation concept}
+    \caption{Elastic Weight Consolidation concept}
     \label{fig:my_label}
 \end{figure}
   
@@ -382,9 +382,9 @@ Different approaches:\\
 \begin{frame}
 \frametitle{Conclusion}
 \begin{itemize}
-    \item Addressing the catastrophic forgetting problem directly
-    \item Using pseudorehearsal and dual-memory systems
-    \item Positioning our idea in the multitask and transfer RL landscape
+    \item Addressing the catastrophic forgetting problem directly gives new insight.
+    \item Using pseudorehearsal and dual-memory systems as possible solutions.
+    \item Our idea has been positioned in the multitask and transfer RL landscape.
 \end{itemize}
 \end{frame}
 
