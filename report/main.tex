@@ -97,11 +97,11 @@ During the past years, multitask and transfer learning have developed at a great
 Following the same ideas, \textit{Teh et al.} \citep{Teh2017Distral:Learning} proposed a novel framework for transfer and multitasking which they reffered to as \textit{Distral} (DIStil and TRAnsfer Learning), in which they exploit \textit{policy distillation} and model \textit{regularization}. Their algorithm seeks to train a shared policy which \textit{distills} behaviours from task-specific experts, as shown on Figure \ref{fig:high -level}. The distilled policy is then used to regularize the task specific policies towards the shared policy by means of Kullback-Leibler (KL) divergence so that it learns to be the centroid in the space of policies. In opposition to the multi-tasking policy distillation algorithm proposed by \textit{Rusu et al.}, the Distral framework enables not only teacher-student transfer but also inter-teacher transfer thanks to the imposed KL divergence regularization. The algorithm was tested in several DeepMindLab environments, which are three-dimensional spaces of higher complexity than Atari games, and compared to a multitask A3C agent. The results showed that the Distral algorithm learnt faster, achieving a higher score while also being more stable.\\
 \begin{figure}[!ht]
      \subfloat[Illustration of the Distral Framework]{%
-       \includegraphics[width=0.45\textwidth]{distral.png}
+       \includegraphics[width=0.45\textwidth]{figs/distral.png}
      }
      \hfill
      \subfloat[Multi-task pollicy distillation architecture]{%
-       \includegraphics[width=0.45\textwidth]{transfer.png}
+       \includegraphics[width=0.45\textwidth]{figs/transfer.png}
      }
      \caption{The figures above are high-level representations of the algorithms presented and were borrowed from \citep{Teh2017Distral:Learning} and \citep{YinKnowledgeReplay} respectively.}
      \label{fig:high -level}
@@ -117,7 +117,7 @@ On the other hand, \textit{Yin et al.} also proposed a novel approach to memory 
 This novel architecture was tested on 10 Atari games and compared to policy distillation and Actor-critic algorithms, as shown on Figure \ref{fig:comparison}. Not only training time was significantly faster compared to the other two, but it also obtained higher mean performance on all 10 games compared to their corresponding teacher DQN.\\
 \begin{figure}[H]
     \centering
-    \includegraphics[width=\textwidth]{comparison.png}
+    \includegraphics[width=\textwidth]{figs/comparison.png}
     \caption{Figured borrowed from \citep{YinKnowledgeReplay} comparing three multi-task frameworks evaluated on different Atari games. 'AMN' stands for the algorithm developed by \textit{Parisotto et al.}, 'DIST' stands for \textit{policy distillation} by \textit{Rusu et al.} and 'proposed' stands for \textit{Yin et al.} approach.}
     \label{fig:comparison}
 \end{figure}
