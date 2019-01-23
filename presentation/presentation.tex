@@ -46,6 +46,7 @@
 \usepackage{movie15}
 \usepackage{float}
 \usepackage{subfig}
+\usepackage{bibentry}
 
 % Printing on 2 slides per page
 %\pgfpagesuselayout{2 on 1}[a4paper,border shrink=5mm]
@@ -253,10 +254,9 @@ Different approaches:\\
     \item \textbf{Policy distillation}: reduction of size and complexity to transfer policies from teachers to a student \cite{RusuPOLICYDISTILLATION}.
     \begin{itemize}
         \item Combine multiple policies more effectively
-        \item Distilled policy is trained to predict the same q-values given the same state. Supervised.
+        \item Distilled policy: network trained to predict the same q-values given the same state.
         \item Common neural network with a specific output layer for each game
-        \item Did not reach single-game expert performance
-        \item Problems - inter-task q-function and reward bounds variance
+        \item Problems - inter-task q-function and reward range variance
     \end{itemize} 
 \end{itemize}
  \end{frame}
@@ -266,8 +266,10 @@ Different approaches:\\
   \begin{itemize}
       \item \textbf{Distral}: policy distillation + regularization \cite{Teh2017Distral:Learning}
       \begin{itemize}
+          \item Need for an expert to train the common policy 
           \item Allows for inter-teacher transfer 
           \item Policy centroid of all policies
+          \item Tested on related tasks in rich 3D environments
       \end{itemize}
   \end{itemize}
   \begin{figure}
@@ -281,23 +283,29 @@ Different approaches:\\
 \begin{frame}
   \frametitle{Multitask and transfer RL on literature}
 \begin{itemize}
-    \item \textbf{Actor-mimic framework}: student network that mimics experts policies. 
+    \item \textbf{Actor-mimic framework}: student network that mimics experts policies \cite{Parisotto2015Actor-Mimic:Learning}.
     \begin{itemize}
         \item Similar concept to policy distillation, but different execution.
         \item Matching expert-student q-value softmax to reduce variance
         \item Matching expert-student pre-output feature layer.
     \end{itemize} 
 \end{itemize}
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.6]{figs/neural.png}
+    \caption{Convolutional neural network}
+    \label{fig:my_label}
+\end{figure}
  \end{frame}
  
 \begin{frame}
   \frametitle{Multitask and transfer RL on literature}
 \begin{itemize}
-    \item \textbf{New multi-task distillation architecture} + hierarchical prioritized experience replay \cite{YinKnowledgeReplay}
+    \item \textbf{New multi-task distillation architecture} + \textbf{hierarchical prioritized experience replay} \cite{YinKnowledgeReplay}
     \begin{itemize}
         \item New architecture
-        \item Preventing negativ transfer
-        \item New sampling strategy
+        \item Preventing negative transfer
+        \item New sampling strategy, preserve state distribution.
     \end{itemize} 
 \end{itemize}
 \begin{figure}
@@ -307,6 +315,17 @@ Different approaches:\\
     \label{fig:my_label}
 \end{figure}
  \end{frame}
+ 
+\begin{frame}
+  \frametitle{Multitask and transfer RL on literature} 
+  \begin{figure}
+      \centering
+      \includegraphics[scale=0.24]{figs/comparison.png}
+      \caption{Benchmark of the different algorithms on Atari games.}
+      \label{fig:my_label}
+  \end{figure}
+\end{frame}
+ 
 \begin{frame}
 \frametitle{Our algorithm}
 \begin{itemize}
@@ -317,10 +336,10 @@ Different approaches:\\
     \end{itemize}
 \item Proposed algorithm:
         \begin{itemize}
-            \item Not using experts.
-            \item Not exact same hyperparameters.
-            \item Fine-tuning previous to executing an specific task.
-            \item Exploit similarities to favor transfer and reduce training times.
+            \item Not using experts
+            \item Not exact same hyperparameters and smaller size
+            \item Fine-tuning previous to executing an specific task
+            \item Exploit similarities to favor transfer and reduce training times
         \end{itemize}
 \end{itemize}
     
@@ -345,8 +364,14 @@ Different approaches:\\
     \item Classic solution: Interleaving new and old samples (Rehearsal)
     \item Pseudo rehearsal \cite{RobinsConsolidationBrain}
     \item Elastic weight Consolidation \cite{Kirkpatrick2017OvercomingNetworks.}
-    \item Dual-memory systems
+    \item Dual-memory systems \cite{Parisi2018ContinualReview}
 \end{itemize}
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.6]{figs/ewc.jpg}
+    \caption{Elastic weight consolidation concept}
+    \label{fig:my_label}
+\end{figure}
   
 \end{frame}
 
@@ -357,7 +382,7 @@ Different approaches:\\
 \begin{frame}
 \frametitle{Conclusion}
 \begin{itemize}
-    \item Addressing the catastrophic problem directly
+    \item Addressing the catastrophic forgettin problem directly
     \item Using ideas 
 \end{itemize}
 \end{frame}
@@ -372,15 +397,9 @@ Different approaches:\\
     Do you have any questions?
   \end{center}
 \end{frame}
-
-\newcounter{lastframe}
-\setcounter{lastframe}{\insertframenumber}
-
-\begin{frame}[allowframebreaks]{References}
-\bibliographystyle{authoryear-fr}
-\bibliography{references}
-\end{frame}
-
-\setcounter{framenumber}{\thelastframe}
+\nobibliography{references}
 
 \end{document}
+
+
+
